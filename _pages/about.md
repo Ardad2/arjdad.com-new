@@ -30,7 +30,13 @@ latest_posts:
 
 Hey, I'm Arjun Dadhwal!👋🏻
 
-I'm currently a first-year Computer Science PhD student at Tulane University, working as a Research Assistant under the supervision of Prof. Brian Summa. 
+I'm currently a first-year Computer Science PhD student at Tulane University, working as a Research Assistant under the supervision of Prof. [Professor Name]. 
+
+My Research interests revolve around Machine Learning, Topological Data Analysis (TDA), and Super-resolution (SR).
+
+My current work introspects the intersection of Topological Data Analysis and Super-resolution.
+
+I'm actively searching for work opportunities for the Summer of 2027.
 
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
