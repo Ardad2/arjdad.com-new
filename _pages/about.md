@@ -31,9 +31,6 @@ latest_posts:
 
 I'm a Computer Science PhD student at Tulane University, working as a Research Assistant under the supervision of Prof. Brian Summa.
 
-
-My research interests include machine learning, topological data analysis (TDA), scientific visualization, and super-resolution (SR).
-
 My research interests include scientific visualization, topological data analysis (TDA), machine learning, and scientific super-resolution (SR).
 
 My current work focuses on topology-aware methods for wind-field super-resolution. In particular, I am interested in how topological descriptors such as persistence diagrams and merge trees can be used to evaluate and improve neural reconstructions of scientific scalar fields.
