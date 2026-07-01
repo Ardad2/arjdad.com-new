@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ardad2.github.io/arjdad.com-new/sitemap.xml
+Sitemap: https://arjdad.com/sitemap.xml
