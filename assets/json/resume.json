@@ -75,28 +75,43 @@
   ],
   "education": [
     {
-      "institution": "University of Zurich",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Physics",
+      "institution": "Tulane University",
+      "location": "New Orleans, Louisiana, US",
+      "url": "https://tulane.edu/",
+      "area": "Computer Science",
       "studyType": "PhD",
-      "startDate": "1900-01-01",
-      "endDate": "1905-01-01",
-      "score": "",
-      "courses": ["Theory of Relativity"],
-      "highlights": ["Description 1.", "Description 2."]
+      "startDate": "2025-08-01",
+      "endDate": "",
+      "score": "3.89",
+      "courses": [],
+      "highlights": ["Research Assistantship", "Full Tution Waiver Award"]
     },
     {
-      "institution": "Eidgenössische Technische Hochschule",
-      "location": "Zurich, Switzerland",
-      "area": "Physics",
-      "studyType": "Federal teaching diploma",
-      "startDate": "1896-01-01",
-      "endDate": "1900-01-01",
-      "score": "",
+      "institution": "Arizona State University",
+      "location": "Tempe, Arizona, US",
+      "url": "https://asu.edu/",
+      "area": "Computer Science",
+      "studyType": "Master of Science - MS",
+      "startDate": "2024-05-01",
+      "endDate": "2025-05-01",
+      "score": "3.90",
       "courses": [],
-      "highlights": ["Description 1.", "Description 2."]
+      "highlights": ["Full Tution Waiver Award", "Graduate Teaching Assistantship", "4 + 1 Accelerated Masters program", "Instructional Assistantship"]
+    },
+
+    {
+      "institution": "Arizona State University",
+      "location": "Tempe, Arizona, US",
+      "url": "https://asu.edu/",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Science - BS",
+      "startDate": "2020-08-01",
+      "endDate": "2024-05-01",
+      "score": "3.99",
+      "courses": [],
+      "highlights": ["Summa Cum Laude graduate", "New American University Scholarship (4 years)", "Undergraduate Assistantship", "Dean's List (multiple semesters)"]
     }
+
   ],
   "awards": [
     {
