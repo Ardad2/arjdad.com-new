@@ -36,6 +36,8 @@ My Research interests revolve around Machine Learning, Topological Data Analysis
 
 My current work introspects the intersection of Topological Data Analysis and Super-resolution.
 
+Previously, I've graduated from Arizona State University (ASU) with an accelerated 4+1 Master's degree in Computer Science with a specialization in Artifical Intelligence in May 2025.
+
 I'm actively searching for work opportunities for the Summer of 2027.
 
 
