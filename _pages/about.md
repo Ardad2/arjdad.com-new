@@ -10,7 +10,7 @@ profile:
   image_circular: true # crops the image to make it circular
   more_info: >
     
-    <p>Computer Science PhD student</p>
+    <p>Computer Science PhD Student</p>
     <p>Research Assistant</p>
     <p>Tulane University</p>
     <p>New Orleans, LA</p>
@@ -29,18 +29,18 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hey, I'm Arjun Dadhwal!👋🏻
+I'm a Computer Science PhD student at Tulane University, working as a Research Assistant under the supervision of Prof. Brian Summa.
 
-I'm a first-year Computer Science PhD student at Tulane University, working as a Research Assistant under the supervision of Prof. Brian Summa.
 
 My research interests include machine learning, topological data analysis (TDA), scientific visualization, and super-resolution (SR).
 
-My current work explores the intersection of topological data analysis and scientific super-resolution.
+My research interests include scientific visualization, topological data analysis (TDA), machine learning, and scientific super-resolution (SR).
+
+My current work focuses on topology-aware methods for wind-field super-resolution. In particular, I am interested in how topological descriptors such as persistence diagrams and merge trees can be used to evaluate and improve neural reconstructions of scientific scalar fields.
 
 Previously, I completed an accelerated 4+1 Master's degree in Computer Science at Arizona State University, with a specialization in Artificial Intelligence, in May 2025.
 
-I'm actively seeking internship opportunities for Summer 2027.
-
+I am also interested in research and internship opportunities for Summer 2027.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
