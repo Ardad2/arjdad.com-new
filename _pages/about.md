@@ -29,7 +29,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a Computer Science PhD student at Tulane University, working as a Research Assistant under the supervision of Prof. Brian Summa.
+I'm a Computer Science PhD student at [Tulane University](https://sse.tulane.edu/cs), working as a Research Assistant under the supervision of Prof. Brian Summa.
 
 My research interests include scientific visualization, topological data analysis (TDA), machine learning, and scientific super-resolution (SR).
 
