@@ -4,5 +4,8 @@ permalink: /resume/
 title: Resume
 nav: true
 nav_order: 5
-redirect: /assets/pdf/Arjun_Dadhwal_Resume.pdf
 ---
+
+My current resume is available as a PDF:
+
+[Open Resume]({{ "/assets/pdf/resume.pdf" | relative_url }})
