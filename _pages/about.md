@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    
+
     <p>Computer Science PhD Student</p>
     <p>Research Assistant</p>
     <p>Tulane University</p>

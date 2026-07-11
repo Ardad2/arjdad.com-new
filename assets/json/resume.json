@@ -96,7 +96,12 @@
       "endDate": "2025-05-01",
       "score": "3.90",
       "courses": [],
-      "highlights": ["Full Tution Waiver Award", "Graduate Teaching Assistantship", "4 + 1 Accelerated Masters program", "Instructional Assistantship"]
+      "highlights": [
+        "Full Tution Waiver Award",
+        "Graduate Teaching Assistantship",
+        "4 + 1 Accelerated Masters program",
+        "Instructional Assistantship"
+      ]
     },
 
     {
@@ -109,9 +114,13 @@
       "endDate": "2024-05-01",
       "score": "3.99",
       "courses": [],
-      "highlights": ["Summa Cum Laude graduate", "New American University Scholarship (4 years)", "Undergraduate Assistantship", "Dean's List (multiple semesters)"]
+      "highlights": [
+        "Summa Cum Laude graduate",
+        "New American University Scholarship (4 years)",
+        "Undergraduate Assistantship",
+        "Dean's List (multiple semesters)"
+      ]
     }
-
   ],
   "awards": [
     {

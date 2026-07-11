@@ -7,8 +7,6 @@ tags: topology tda super-resolution machine-learning
 categories: research
 ---
 
-
-
 # Candidate Loss Summary
 
 ## Kissi et al. (2025) Approach (Topology-Aware Neural Interpolation)
@@ -71,7 +69,7 @@ $$
 
 preserves local ridges/fronts.
 
-The soft level-set term is a differentiable mask over high-speed wind regions, so the model is rewarded for placing high-wind regions in the right *places*, not just matching speed values pointwise, while still supplying usable gradients:
+The soft level-set term is a differentiable mask over high-speed wind regions, so the model is rewarded for placing high-wind regions in the right _places_, not just matching speed values pointwise, while still supplying usable gradients:
 
 $$
 M_\tau(s)=\sigma(k(s-\tau)),\quad k=10,\quad \tau\in\{5,10,15\}\text{ m/s},
@@ -201,17 +199,17 @@ Intuition: this is a more faithful topology-derived loss than Candidate C, becau
 
 It did not improve PD as well as Candidate C.
 
-| Method | Training / setup | PD mean | MT mean | PD < CNN | MT < CNN |
-|---|---|---:|---:|---:|---:|
-| CNN | baseline | 27.4063 | 5.8678 | -- | -- |
-| GAN | baseline | 20.8641 | 8.3481 | 166/168 | 20/168 |
-| C-168 | TF PhIRE fine-tune | 27.0021 | 5.7141 | 120/168 | 102/168 |
-| C-672 | TF PhIRE fine-tune | 23.9580 | 6.0765 | 168/168 | 54/168 |
-| C-1344 | TF PhIRE fine-tune | 22.8623 | 6.1236 | 168/168 | 49/168 |
-| C-2688 | TF PhIRE fine-tune | 22.4944 | 6.0803 | 168/168 | 52/168 |
-| E2-low-672 fixed | PyTorch residual refiner | 27.1011 | 5.7522 | 130/168 | 113/168 |
-| E2-low-1344 fixed | PyTorch residual refiner | 26.9905 | 5.7102 | 128/168 | 120/168 |
-| E2-low-2688 fixed | PyTorch residual refiner | 26.4934 | 5.6989 | 142/168 | 118/168 |
+| Method            | Training / setup         | PD mean | MT mean | PD < CNN | MT < CNN |
+| ----------------- | ------------------------ | ------: | ------: | -------: | -------: |
+| CNN               | baseline                 | 27.4063 |  5.8678 |       -- |       -- |
+| GAN               | baseline                 | 20.8641 |  8.3481 |  166/168 |   20/168 |
+| C-168             | TF PhIRE fine-tune       | 27.0021 |  5.7141 |  120/168 |  102/168 |
+| C-672             | TF PhIRE fine-tune       | 23.9580 |  6.0765 |  168/168 |   54/168 |
+| C-1344            | TF PhIRE fine-tune       | 22.8623 |  6.1236 |  168/168 |   49/168 |
+| C-2688            | TF PhIRE fine-tune       | 22.4944 |  6.0803 |  168/168 |   52/168 |
+| E2-low-672 fixed  | PyTorch residual refiner | 27.1011 |  5.7522 |  130/168 |  113/168 |
+| E2-low-1344 fixed | PyTorch residual refiner | 26.9905 |  5.7102 |  128/168 |  120/168 |
+| E2-low-2688 fixed | PyTorch residual refiner | 26.4934 |  5.6989 |  142/168 |  118/168 |
 
 ## Summary of Topology Results
 
@@ -219,15 +217,15 @@ Lower is better for both PD and MT. "PD < CNN" and "MT < CNN" count how often th
 
 ### 168-Sample Pilot / Topology-Candidate Comparison
 
-| Method | Main idea | PD mean | MT mean | PD < CNN | MT < CNN |
-|---|---|---:|---:|---:|---:|
-| CNN baseline | Pretrained fidelity-oriented CNN | 27.4063 | 5.8678 | -- | -- |
-| GAN baseline | Pretrained adversarial model | 20.8641 | 8.3481 | 166/168 | 20/168 |
-| Candidate UV | Vector-only fine-tuning, $L_{uv}$ | 30.5098 | 6.3862 | 0/168 | 26/168 |
-| Candidate B | Speed + gradient + soft level-set losses | 26.1794 | 6.0186 | 136/168 | 66/168 |
-| Candidate C | Candidate B + high-speed local-maxima proxy | 27.0021 | 5.7141 | 120/168 | 102/168 |
-| Candidate D | Residual-refiner audit; original PD weight was zero | 27.9510 | 5.9837 | 1/168 | 50/168 |
-| Candidate E | TTK birth/death vertices + fixed-index scalar losses | 28.1715 | 6.0618 | 1/168 | 35/168 |
+| Method       | Main idea                                            | PD mean | MT mean | PD < CNN | MT < CNN |
+| ------------ | ---------------------------------------------------- | ------: | ------: | -------: | -------: |
+| CNN baseline | Pretrained fidelity-oriented CNN                     | 27.4063 |  5.8678 |       -- |       -- |
+| GAN baseline | Pretrained adversarial model                         | 20.8641 |  8.3481 |  166/168 |   20/168 |
+| Candidate UV | Vector-only fine-tuning, $L_{uv}$                    | 30.5098 |  6.3862 |    0/168 |   26/168 |
+| Candidate B  | Speed + gradient + soft level-set losses             | 26.1794 |  6.0186 |  136/168 |   66/168 |
+| Candidate C  | Candidate B + high-speed local-maxima proxy          | 27.0021 |  5.7141 |  120/168 |  102/168 |
+| Candidate D  | Residual-refiner audit; original PD weight was zero  | 27.9510 |  5.9837 |    1/168 |   50/168 |
+| Candidate E  | TTK birth/death vertices + fixed-index scalar losses | 28.1715 |  6.0618 |    1/168 |   35/168 |
 
 The 168-sample pilot made Candidate C look most promising for MT: it improved mean MT relative to CNN. However, this result needed a stronger expanded-data check, since the same 168 samples were also used for fine-tuning.
 
@@ -235,18 +233,17 @@ The 168-sample pilot made Candidate C look most promising for MT: it improved me
 
 All expanded variants below were trained on the same 672 non-overlapping seasonal samples and evaluated on the original fixed 168-sample benchmark.
 
-| Method | Objective summary | PD mean | MT mean | PD < CNN | MT < CNN |
-|---|---|---:|---:|---:|---:|
-| CNN baseline | Released CNN | 27.4063 | 5.8678 | -- | -- |
-| GAN baseline | Released GAN | 20.8641 | 8.3481 | 166/168 | 20/168 |
-| UV-expanded-672 | $L_{uv}$ | 29.8747 | 6.2891 | 6/168 | 43/168 |
-| B-expanded-672 | $L_{uv}+L_{\mathrm{speed}}+L_{\mathrm{grad}}+L_{\mathrm{levelset}}$ | 23.7094 | 6.3124 | 167/168 | 36/168 |
-| C-expanded-672 | Candidate B + $L_{\mathrm{crit}}$ | 23.9580 | 6.0765 | 168/168 | 54/168 |
-| D-expanded-672 | Candidate C + active differentiable PD loss | 28.7656 | 6.2210 | 0/168 | 23/168 |
-| E-expanded-672 | Candidate C + TTK critical-value/persistence-gap losses | 28.6697 | 6.1622 | 0/168 | 24/168 |
+| Method          | Objective summary                                                   | PD mean | MT mean | PD < CNN | MT < CNN |
+| --------------- | ------------------------------------------------------------------- | ------: | ------: | -------: | -------: |
+| CNN baseline    | Released CNN                                                        | 27.4063 |  5.8678 |       -- |       -- |
+| GAN baseline    | Released GAN                                                        | 20.8641 |  8.3481 |  166/168 |   20/168 |
+| UV-expanded-672 | $L_{uv}$                                                            | 29.8747 |  6.2891 |    6/168 |   43/168 |
+| B-expanded-672  | $L_{uv}+L_{\mathrm{speed}}+L_{\mathrm{grad}}+L_{\mathrm{levelset}}$ | 23.7094 |  6.3124 |  167/168 |   36/168 |
+| C-expanded-672  | Candidate B + $L_{\mathrm{crit}}$                                   | 23.9580 |  6.0765 |  168/168 |   54/168 |
+| D-expanded-672  | Candidate C + active differentiable PD loss                         | 28.7656 |  6.2210 |    0/168 |   23/168 |
+| E-expanded-672  | Candidate C + TTK critical-value/persistence-gap losses             | 28.6697 |  6.1622 |    0/168 |   24/168 |
 
 The expanded ablation changed the story. Candidate B and Candidate C strongly improved PD, showing that scalar-speed, gradient, level-set, and high-speed-extrema proxies can influence persistence-style structure. However, the MT improvements were much weaker and did not beat the CNN baseline on mean MT. Candidate D and E were feasible but did not improve final TTK PD/MT, suggesting that differentiable PD losses or fixed birth/death value constraints are not automatically aligned with the final topology evaluators.
-
 
 ---
 
@@ -258,14 +255,14 @@ This section records the post-hoc repair/audit sequence for Candidate E. It shou
 
 The original Candidate E idea was scientifically reasonable: use TTK offline to identify persistence-pair birth/death vertices, then use differentiable neural losses at those fixed spatial locations. However, the first E-family implementation mixed several confounders:
 
-| Issue | What happened originally | Repair / correction | Why it matters |
-|---|---|---|---|
-| Vector loss normalization | Some PyTorch E/D scripts used physical-unit `[u,v]` arrays in `L_uv` instead of the normalized vector convention used by PhIRE training. | Repaired scripts normalize `[u,v]` before computing `L_uv`; speed/topology losses remain in physical units. | Keeps the base reconstruction term comparable to Candidate B/C and the pretrained CNN objective. |
-| VTI / vertex mapping | Early VTI writing used a flattening convention inconsistent with VTK point IDs. | Repaired VTI writing uses C-order flattening so point ID `vid = ix + iy * W` matches `iy = vid // W`, `ix = vid % W`. | Ensures TTK birth/death vertex IDs refer to the intended pixels in the SR/GT scalar field. |
-| Target critical values | Early E used diagram-encoded birth/death coordinates as targets rather than reading actual GT speed at the selected vertex IDs. | Repaired E2 uses `s_GT(b_i)` and `s_GT(d_i)` directly as target scalar values. | Makes the fixed-index critical-value loss physically meaningful. |
-| Loss scale | The original high TTK weights, especially `0.04 L_TTKCV + 0.02 L_TTKpers`, were too aggressive after repairs. | Low-lambda repaired E2 uses `0.004 L_TTKCV + 0.002 L_TTKpers`. | Avoids large scalar-field distortions while still giving TTK constraints influence. |
-| Architecture confound | Early repaired E2 was implemented as a PyTorch residual refiner on frozen CNN outputs. | Later E2 was implemented inside the native PhIRE/TensorFlow fine-tuning path. | Separates "does the repaired loss work?" from "does a residual post-processor behave differently from full generator fine-tuning?" |
-| Topology extraction reliability | TTK MT extraction could segfault under repeated full reruns, especially with many threads. | The topology pipeline was patched to skip completed outputs, retry only missing fields, hard-gate incomplete extraction, and run with `--threads 1`. | Makes full 168-sample PD/MT evaluation reproducible for repaired candidates. |
+| Issue                           | What happened originally                                                                                                                 | Repair / correction                                                                                                                                  | Why it matters                                                                                                                     |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Vector loss normalization       | Some PyTorch E/D scripts used physical-unit `[u,v]` arrays in `L_uv` instead of the normalized vector convention used by PhIRE training. | Repaired scripts normalize `[u,v]` before computing `L_uv`; speed/topology losses remain in physical units.                                          | Keeps the base reconstruction term comparable to Candidate B/C and the pretrained CNN objective.                                   |
+| VTI / vertex mapping            | Early VTI writing used a flattening convention inconsistent with VTK point IDs.                                                          | Repaired VTI writing uses C-order flattening so point ID `vid = ix + iy * W` matches `iy = vid // W`, `ix = vid % W`.                                | Ensures TTK birth/death vertex IDs refer to the intended pixels in the SR/GT scalar field.                                         |
+| Target critical values          | Early E used diagram-encoded birth/death coordinates as targets rather than reading actual GT speed at the selected vertex IDs.          | Repaired E2 uses `s_GT(b_i)` and `s_GT(d_i)` directly as target scalar values.                                                                       | Makes the fixed-index critical-value loss physically meaningful.                                                                   |
+| Loss scale                      | The original high TTK weights, especially `0.04 L_TTKCV + 0.02 L_TTKpers`, were too aggressive after repairs.                            | Low-lambda repaired E2 uses `0.004 L_TTKCV + 0.002 L_TTKpers`.                                                                                       | Avoids large scalar-field distortions while still giving TTK constraints influence.                                                |
+| Architecture confound           | Early repaired E2 was implemented as a PyTorch residual refiner on frozen CNN outputs.                                                   | Later E2 was implemented inside the native PhIRE/TensorFlow fine-tuning path.                                                                        | Separates "does the repaired loss work?" from "does a residual post-processor behave differently from full generator fine-tuning?" |
+| Topology extraction reliability | TTK MT extraction could segfault under repeated full reruns, especially with many threads.                                               | The topology pipeline was patched to skip completed outputs, retry only missing fields, hard-gate incomplete extraction, and run with `--threads 1`. | Makes full 168-sample PD/MT evaluation reproducible for repaired candidates.                                                       |
 
 ### Repaired E2 loss definitions
 
@@ -312,11 +309,11 @@ $$
 
 On the 672-sample expanded setup, this did not improve the final TTK topology metrics:
 
-| Method | Training path | Main difference | PD mean | MT mean | PD < CNN | MT < CNN |
-|---|---|---|---:|---:|---:|---:|
-| CNN baseline | pretrained PhIRE CNN | no fine-tuning | 27.4063 | 5.8678 | -- | -- |
-| C-expanded-672 | TF PhIRE fine-tune | Candidate B + `L_crit` | 23.9580 | 6.0765 | 168/168 | 54/168 |
-| E-expanded-672 | initial E-family setup | Candidate C + high-weight TTK terms | 28.6697 | 6.1622 | 0/168 | 24/168 |
+| Method         | Training path          | Main difference                     | PD mean | MT mean | PD < CNN | MT < CNN |
+| -------------- | ---------------------- | ----------------------------------- | ------: | ------: | -------: | -------: |
+| CNN baseline   | pretrained PhIRE CNN   | no fine-tuning                      | 27.4063 |  5.8678 |       -- |       -- |
+| C-expanded-672 | TF PhIRE fine-tune     | Candidate B + `L_crit`              | 23.9580 |  6.0765 |  168/168 |   54/168 |
+| E-expanded-672 | initial E-family setup | Candidate C + high-weight TTK terms | 28.6697 |  6.1622 |    0/168 |   24/168 |
 
 This result should not be interpreted as "TTK supervision does not work." It was later found to be confounded by implementation details and loss-scale issues.
 
@@ -324,12 +321,12 @@ This result should not be interpreted as "TTK supervision does not work." It was
 
 After repairing the VTI coordinate mapping, target convention, and normalized `L_uv`, the first successful repaired tests used a PyTorch residual refiner on top of frozen CNN outputs. This was not an apples-to-apples PhIRE fine-tuning comparison, but it was a useful diagnostic because it showed that repaired TTK critical-pair supervision carries a real MT-oriented signal.
 
-| Method | Architecture | Training scale | PD mean | MT mean | PD < CNN | MT < CNN | MT-GAN cases recovered |
-|---|---|---:|---:|---:|---:|---:|---:|
-| CNN baseline | pretrained CNN | -- | 27.4063 | 5.8678 | -- | -- | -- |
-| E2-low-672 fixed | PyTorch residual refiner | 672 | 27.1011 | 5.7522 | 130/168 | 113/168 | 6/20 |
-| E2-low-1344 fixed | PyTorch residual refiner | 1344 | 26.9905 | 5.7102 | 128/168 | 120/168 | 11/20 |
-| E2-low-2688 fixed | PyTorch residual refiner | 2688 | 26.4934 | 5.6989 | 142/168 | 118/168 | 11/20 |
+| Method            | Architecture             | Training scale | PD mean | MT mean | PD < CNN | MT < CNN | MT-GAN cases recovered |
+| ----------------- | ------------------------ | -------------: | ------: | ------: | -------: | -------: | ---------------------: |
+| CNN baseline      | pretrained CNN           |             -- | 27.4063 |  5.8678 |       -- |       -- |                     -- |
+| E2-low-672 fixed  | PyTorch residual refiner |            672 | 27.1011 |  5.7522 |  130/168 |  113/168 |                   6/20 |
+| E2-low-1344 fixed | PyTorch residual refiner |           1344 | 26.9905 |  5.7102 |  128/168 |  120/168 |                  11/20 |
+| E2-low-2688 fixed | PyTorch residual refiner |           2688 | 26.4934 |  5.6989 |  142/168 |  118/168 |                  11/20 |
 
 Interpretation: the repaired residual E2 family did not close the PD gap to GAN, but it consistently improved MT relative to CNN. This was the first strong sign that TTK critical-pair constraints were more merge-tree-oriented than persistence-diagram-oriented in this setup.
 
@@ -348,11 +345,11 @@ $$
 
 This run is best named **TF C+E2-low-672**, not pure Candidate E, because it includes Candidate C's local-maxima proxy.
 
-| Method | Architecture | PD mean | MT mean | PD < CNN | MT < CNN | PD beats GAN | MT beats GAN | MT-GAN cases recovered |
-|---|---|---:|---:|---:|---:|---:|---:|---:|
-| CNN baseline | pretrained CNN | 27.4063 | 5.8678 | -- | -- | -- | -- | -- |
-| GAN baseline | pretrained GAN | 20.8641 | 8.3481 | 166/168 | 20/168 | -- | -- | -- |
-| TF C+E2-low-672 | native PhIRE fine-tune | 24.9844 | 5.7076 | 162/168 | 96/168 | 4/168 | 160/168 | 14/20 |
+| Method          | Architecture           | PD mean | MT mean | PD < CNN | MT < CNN | PD beats GAN | MT beats GAN | MT-GAN cases recovered |
+| --------------- | ---------------------- | ------: | ------: | -------: | -------: | -----------: | -----------: | ---------------------: |
+| CNN baseline    | pretrained CNN         | 27.4063 |  5.8678 |       -- |       -- |           -- |           -- |                     -- |
+| GAN baseline    | pretrained GAN         | 20.8641 |  8.3481 |  166/168 |   20/168 |           -- |           -- |                     -- |
+| TF C+E2-low-672 | native PhIRE fine-tune | 24.9844 |  5.7076 |  162/168 |   96/168 |        4/168 |      160/168 |                  14/20 |
 
 Interpretation: adding repaired E2 inside the native PhIRE fine-tuning path produced a balanced result. It preserved much of Candidate C's PD improvement while substantially improving MT relative to the CNN baseline. However, because `L_crit` was still present, this run could not prove whether the MT gain came from the repaired TTK terms or from interaction with Candidate C's local-maxima proxy.
 
@@ -376,58 +373,58 @@ $$
 
 This makes **TF B+E2-low** the cleanest repaired E2 ablation, because it tests whether the repaired TTK fixed-index losses themselves carry the MT signal. After the initial 672-sample B+E2 run succeeded, the same ablation was scaled to 1344 and 2688 training samples to compare directly with the Candidate C scale ladder.
 
-| Method | Architecture | Loss summary | PD mean | MT mean | PD < CNN | MT < CNN | PD beats GAN | MT beats GAN | MT-GAN cases recovered |
-|---|---|---|---:|---:|---:|---:|---:|---:|---:|
-| CNN baseline | pretrained CNN | -- | 27.4063 | 5.8678 | -- | -- | -- | -- | -- |
-| GAN baseline | pretrained GAN | -- | 20.8641 | 8.3481 | 166/168 | 20/168 | -- | -- | -- |
-| C-expanded-672 | native PhIRE fine-tune | B + `0.001 L_crit` | 23.9580 | 6.0765 | 168/168 | 54/168 | 20/168 | 155/168 | 7/20 |
-| C-expanded-1344 | native PhIRE fine-tune | B + `0.001 L_crit` | 22.8623 | 6.1236 | 168/168 | 49/168 | -- | -- | 9/20 |
-| C-expanded-2688 | native PhIRE fine-tune | B + `0.001 L_crit` | 22.4944 | 6.0803 | 168/168 | 52/168 | 20/168 | -- | 10/20 |
-| TF C+E2-low-672 | native PhIRE fine-tune | C + low-lambda TTK | 24.9844 | 5.7076 | 162/168 | 96/168 | 4/168 | 160/168 | 14/20 |
-| TF B+E2-low-672 | native PhIRE fine-tune | B + low-lambda TTK, no `L_crit` | 24.7596 | 5.7161 | 162/168 | 99/168 | 4/168 | 164/168 | 16/20 |
-| TF B+E2-low-1344 | native PhIRE fine-tune | B + low-lambda TTK, no `L_crit` | 24.4965 | **5.6514** | 160/168 | 97/168 | 4/168 | 166/168 | **18/20** |
-| TF B+E2-low-2688 | native PhIRE fine-tune | B + low-lambda TTK, no `L_crit` | **23.9876** | 5.6774 | 166/168 | 90/168 | 8/168 | 166/168 | **18/20** |
+| Method           | Architecture           | Loss summary                    |     PD mean |    MT mean | PD < CNN | MT < CNN | PD beats GAN | MT beats GAN | MT-GAN cases recovered |
+| ---------------- | ---------------------- | ------------------------------- | ----------: | ---------: | -------: | -------: | -----------: | -----------: | ---------------------: |
+| CNN baseline     | pretrained CNN         | --                              |     27.4063 |     5.8678 |       -- |       -- |           -- |           -- |                     -- |
+| GAN baseline     | pretrained GAN         | --                              |     20.8641 |     8.3481 |  166/168 |   20/168 |           -- |           -- |                     -- |
+| C-expanded-672   | native PhIRE fine-tune | B + `0.001 L_crit`              |     23.9580 |     6.0765 |  168/168 |   54/168 |       20/168 |      155/168 |                   7/20 |
+| C-expanded-1344  | native PhIRE fine-tune | B + `0.001 L_crit`              |     22.8623 |     6.1236 |  168/168 |   49/168 |           -- |           -- |                   9/20 |
+| C-expanded-2688  | native PhIRE fine-tune | B + `0.001 L_crit`              |     22.4944 |     6.0803 |  168/168 |   52/168 |       20/168 |           -- |                  10/20 |
+| TF C+E2-low-672  | native PhIRE fine-tune | C + low-lambda TTK              |     24.9844 |     5.7076 |  162/168 |   96/168 |        4/168 |      160/168 |                  14/20 |
+| TF B+E2-low-672  | native PhIRE fine-tune | B + low-lambda TTK, no `L_crit` |     24.7596 |     5.7161 |  162/168 |   99/168 |        4/168 |      164/168 |                  16/20 |
+| TF B+E2-low-1344 | native PhIRE fine-tune | B + low-lambda TTK, no `L_crit` |     24.4965 | **5.6514** |  160/168 |   97/168 |        4/168 |      166/168 |              **18/20** |
+| TF B+E2-low-2688 | native PhIRE fine-tune | B + low-lambda TTK, no `L_crit` | **23.9876** |     5.6774 |  166/168 |   90/168 |        8/168 |      166/168 |              **18/20** |
 
 ### Cheap scalar/domain metrics for TF B+E2-low scale ladder
 
 Before the expensive TTK runs, the cheap scalar/domain evaluations indicated that all B+E2 scale-up runs were safe to evaluate topologically. All three B+E2 scales improved direct fidelity, scalar speed error, WPD metrics, gradient error, exceedance behavior, and component-count proxy behavior relative to the CNN baseline. The main repeated caveat is that PSD slope error worsened relative to CNN.
 
-| Metric | CNN | GAN | TF B+E2-low-672 | TF B+E2-low-1344 | TF B+E2-low-2688 | Direction |
-|---|---:|---:|---:|---:|---:|---|
-| PSNRuv (dB) | 31.1925 | 29.1380 | 32.1146 | 32.4480 | **32.6889** | higher is better |
-| Speed MAE (m/s) | 0.6941 | 0.9026 | 0.6178 | 0.5884 | **0.5684** | lower is better |
-| Speed RMSE (m/s) | 1.1078 | 1.3775 | 1.0240 | 0.9852 | **0.9629** | lower is better |
-| WPD MAE | 231.6709 | 310.7328 | 202.2449 | 191.8304 | **183.4170** | lower is better |
-| WPD W1 | 45.2713 | 85.6191 | 19.5757 | 19.3128 | **16.0868** | lower is better |
-| WPD bias abs | 35.3439 | 78.7236 | 13.1372 | **11.5541** | 12.6851 | lower is better |
-| Gradient MAE | 0.3491 | 0.3806 | 0.3212 | 0.3180 | **0.3120** | lower is better |
-| Gradient W1 | 0.2329 | 0.0564 | 0.1492 | 0.1654 | 0.1543 | lower is better |
-| Gradient kurtosis abs Δ | 3.7004 | 4.2010 | 3.0060 | **2.9293** | 2.9747 | lower is better |
-| PSD log-L2 | 0.8335 | 0.5139 | **0.8096** | 0.8560 | 0.8509 | lower is better |
-| PSD slope abs Δ | **0.9150** | 0.9482 | 1.0791 | 1.1891 | 1.2029 | lower is better |
-| Exceedance abs Δ s>5 | 0.0042 | 0.0082 | 0.0027 | 0.0029 | **0.0020** | lower is better |
-| Exceedance abs Δ s>10 | 0.0066 | 0.0243 | 0.0037 | 0.0027 | **0.0026** | lower is better |
-| Exceedance abs Δ s>15 | 0.0062 | 0.0096 | 0.0018 | 0.0023 | **0.0018** | lower is better |
-| Exceedance abs Δ p90 | 0.0103 | 0.0123 | 0.0032 | 0.0031 | **0.0028** | lower is better |
-| Component-count curve L1 | 115.5278 | 124.6567 | 84.1935 | 91.1538 | **88.0060** | lower is better |
+| Metric                   |        CNN |      GAN | TF B+E2-low-672 | TF B+E2-low-1344 | TF B+E2-low-2688 | Direction        |
+| ------------------------ | ---------: | -------: | --------------: | ---------------: | ---------------: | ---------------- |
+| PSNRuv (dB)              |    31.1925 |  29.1380 |         32.1146 |          32.4480 |      **32.6889** | higher is better |
+| Speed MAE (m/s)          |     0.6941 |   0.9026 |          0.6178 |           0.5884 |       **0.5684** | lower is better  |
+| Speed RMSE (m/s)         |     1.1078 |   1.3775 |          1.0240 |           0.9852 |       **0.9629** | lower is better  |
+| WPD MAE                  |   231.6709 | 310.7328 |        202.2449 |         191.8304 |     **183.4170** | lower is better  |
+| WPD W1                   |    45.2713 |  85.6191 |         19.5757 |          19.3128 |      **16.0868** | lower is better  |
+| WPD bias abs             |    35.3439 |  78.7236 |         13.1372 |      **11.5541** |          12.6851 | lower is better  |
+| Gradient MAE             |     0.3491 |   0.3806 |          0.3212 |           0.3180 |       **0.3120** | lower is better  |
+| Gradient W1              |     0.2329 |   0.0564 |          0.1492 |           0.1654 |           0.1543 | lower is better  |
+| Gradient kurtosis abs Δ  |     3.7004 |   4.2010 |          3.0060 |       **2.9293** |           2.9747 | lower is better  |
+| PSD log-L2               |     0.8335 |   0.5139 |      **0.8096** |           0.8560 |           0.8509 | lower is better  |
+| PSD slope abs Δ          | **0.9150** |   0.9482 |          1.0791 |           1.1891 |           1.2029 | lower is better  |
+| Exceedance abs Δ s>5     |     0.0042 |   0.0082 |          0.0027 |           0.0029 |       **0.0020** | lower is better  |
+| Exceedance abs Δ s>10    |     0.0066 |   0.0243 |          0.0037 |           0.0027 |       **0.0026** | lower is better  |
+| Exceedance abs Δ s>15    |     0.0062 |   0.0096 |          0.0018 |           0.0023 |       **0.0018** | lower is better  |
+| Exceedance abs Δ p90     |     0.0103 |   0.0123 |          0.0032 |           0.0031 |       **0.0028** | lower is better  |
+| Component-count curve L1 |   115.5278 | 124.6567 |         84.1935 |          91.1538 |      **88.0060** | lower is better  |
 
 Pairwise improvement counts relative to CNN also remained strong:
 
-| Metric | TF B+E2-low-672 improved / 168 | TF B+E2-low-1344 improved / 168 | TF B+E2-low-2688 improved / 168 |
-|---|---:|---:|---:|
-| PSNRuv | 168 | 168 | 168 |
-| Speed MAE | 168 | 168 | 168 |
-| Speed RMSE | 168 | 168 | 168 |
-| WPD MAE | 168 | 168 | 168 |
-| WPD W1 | 156 | 139 | 157 |
-| WPD bias abs | 152 | 124 | 140 |
-| Gradient MAE | 168 | 168 | 168 |
-| Gradient W1 | 162 | 155 | 162 |
-| Exceedance abs Δ s>5 | 116 | 118 | 132 |
-| Exceedance abs Δ s>10 | 117 | 123 | 134 |
-| Exceedance abs Δ s>15 | 137 | 124 | 141 |
-| Exceedance abs Δ p90 | 155 | 136 | 148 |
-| Component-count curve L1 | 155 | 153 | 155 |
+| Metric                   | TF B+E2-low-672 improved / 168 | TF B+E2-low-1344 improved / 168 | TF B+E2-low-2688 improved / 168 |
+| ------------------------ | -----------------------------: | ------------------------------: | ------------------------------: |
+| PSNRuv                   |                            168 |                             168 |                             168 |
+| Speed MAE                |                            168 |                             168 |                             168 |
+| Speed RMSE               |                            168 |                             168 |                             168 |
+| WPD MAE                  |                            168 |                             168 |                             168 |
+| WPD W1                   |                            156 |                             139 |                             157 |
+| WPD bias abs             |                            152 |                             124 |                             140 |
+| Gradient MAE             |                            168 |                             168 |                             168 |
+| Gradient W1              |                            162 |                             155 |                             162 |
+| Exceedance abs Δ s>5     |                            116 |                             118 |                             132 |
+| Exceedance abs Δ s>10    |                            117 |                             123 |                             134 |
+| Exceedance abs Δ s>15    |                            137 |                             124 |                             141 |
+| Exceedance abs Δ p90     |                            155 |                             136 |                             148 |
+| Component-count curve L1 |                            155 |                             153 |                             155 |
 
 ### B+E2-low scale-ladder interpretation
 
@@ -442,11 +439,11 @@ The B+E2-low scale ladder gives a clearer conclusion than the original Candidate
 
 A compact comparison against Candidate C is:
 
-| Scale | Candidate C PD | Candidate C MT | B+E2-low PD | B+E2-low MT | Main readout |
-|---:|---:|---:|---:|---:|---|
-| 672 | **23.9580** | 6.0765 | 24.7596 | **5.7161** | C better PD; B+E2 better MT |
-| 1344 | **22.8623** | 6.1236 | 24.4965 | **5.6514** | C better PD; B+E2 much better MT |
-| 2688 | **22.4944** | 6.0803 | 23.9876 | **5.6774** | C better PD; B+E2 better MT and improved PD vs 672 |
+| Scale | Candidate C PD | Candidate C MT | B+E2-low PD | B+E2-low MT | Main readout                                       |
+| ----: | -------------: | -------------: | ----------: | ----------: | -------------------------------------------------- |
+|   672 |    **23.9580** |         6.0765 |     24.7596 |  **5.7161** | C better PD; B+E2 better MT                        |
+|  1344 |    **22.8623** |         6.1236 |     24.4965 |  **5.6514** | C better PD; B+E2 much better MT                   |
+|  2688 |    **22.4944** |         6.0803 |     23.9876 |  **5.6774** | C better PD; B+E2 better MT and improved PD vs 672 |
 
 ### Final interpretation of the E repair sequence
 
@@ -471,8 +468,6 @@ A safe paper/future-work statement is:
 
 > A repaired post-submission audit of TTK critical-pair supervision suggests that fixed-index birth/death value and persistence-gap losses provide a merge-tree-oriented training signal. In a clean B+E2 ablation, removing the local-maxima proxy did not remove the MT improvement, and scaling the ablation to 1344 and 2688 samples preserved the effect. Future work should extend this pointwise critical-pair supervision to neighborhood-aware and branch-aware losses that more directly encode merge-tree structure.
 
-
-
 ---
 
 ## Priority 3 Update — Native TF C+E2-low scale-up to 1344/2688
@@ -494,10 +489,10 @@ $$
 
 The two scale-up scripts were generated from the completed `candidateE2_tf_lowlambda_expanded672` script:
 
-| Script | Method name | Training samples | Key point |
-|---|---|---:|---|
-| `scripts/run_candidateE2_tf_lowlambda_expanded1344_ttkcrit_refiner.py` | `candidateE2_tf_lowlambda_expanded1344` | 1344 | keeps `LAMBDA_CRIT=0.001`; native PhIRE/TF generator fine-tune |
-| `scripts/run_candidateE2_tf_lowlambda_expanded2688_ttkcrit_refiner.py` | `candidateE2_tf_lowlambda_expanded2688` | 2688 | keeps `LAMBDA_CRIT=0.001`; native PhIRE/TF generator fine-tune |
+| Script                                                                 | Method name                             | Training samples | Key point                                                      |
+| ---------------------------------------------------------------------- | --------------------------------------- | ---------------: | -------------------------------------------------------------- |
+| `scripts/run_candidateE2_tf_lowlambda_expanded1344_ttkcrit_refiner.py` | `candidateE2_tf_lowlambda_expanded1344` |             1344 | keeps `LAMBDA_CRIT=0.001`; native PhIRE/TF generator fine-tune |
+| `scripts/run_candidateE2_tf_lowlambda_expanded2688_ttkcrit_refiner.py` | `candidateE2_tf_lowlambda_expanded2688` |             2688 | keeps `LAMBDA_CRIT=0.001`; native PhIRE/TF generator fine-tune |
 
 Safety checks performed before running included `py_compile`, AST/constant extraction, self-block checks, completed-run protection checks, sibling cross-protection, and dry-run precondition checks. The important distinction is that these are **C+E2-low** runs, not the `L_crit`-disabled B+E2 ablation.
 
@@ -505,45 +500,45 @@ Safety checks performed before running included `py_compile`, AST/constant extra
 
 The 1344 C+E2-low run completed training and paired inference on the fixed 168-sample benchmark. The cheap evaluation was healthy enough for TTK: GT alignment was exact, 168 common samples were present, and most scalar/domain metrics improved relative to the CNN baseline.
 
-| Metric | CNN | GAN | TF C+E2-low-1344 | Direction |
-|---|---:|---:|---:|---|
-| PSNRuv (dB) | 31.1925 | 29.1380 | **32.3659** | higher is better |
-| Speed MAE (m/s) | 0.6941 | 0.9026 | **0.5925** | lower is better |
-| Speed RMSE (m/s) | 1.1078 | 1.3775 | **0.9947** | lower is better |
-| WPD MAE | 231.6709 | 310.7328 | **193.1359** | lower is better |
-| WPD W1 | 45.2713 | 85.6191 | **14.7417** | lower is better |
-| WPD bias abs | 35.3439 | 78.7236 | **4.7898** | lower is better |
-| Gradient MAE | 0.3491 | 0.3806 | **0.3173** | lower is better |
-| Gradient W1 | 0.2329 | **0.0564** | 0.1530 | lower is better |
-| Gradient kurtosis abs Δ | 3.7004 | 4.2010 | **2.8428** | lower is better |
-| PSD log-L2 | 0.8335 | **0.5139** | 0.8302 | lower is better |
-| PSD slope abs Δ | **0.9150** | 0.9482 | 1.1317 | lower is better |
-| Exceedance abs Δ s>5 | 0.0042 | 0.0082 | **0.0030** | lower is better |
-| Exceedance abs Δ s>10 | 0.0066 | 0.0243 | **0.0030** | lower is better |
-| Exceedance abs Δ s>15 | 0.0062 | 0.0096 | **0.0013** | lower is better |
-| Exceedance abs Δ p90 | 0.0103 | 0.0123 | **0.0018** | lower is better |
-| Component-count curve L1 | 115.5278 | 124.6567 | **88.8919** | lower is better |
+| Metric                   |        CNN |        GAN | TF C+E2-low-1344 | Direction        |
+| ------------------------ | ---------: | ---------: | ---------------: | ---------------- |
+| PSNRuv (dB)              |    31.1925 |    29.1380 |      **32.3659** | higher is better |
+| Speed MAE (m/s)          |     0.6941 |     0.9026 |       **0.5925** | lower is better  |
+| Speed RMSE (m/s)         |     1.1078 |     1.3775 |       **0.9947** | lower is better  |
+| WPD MAE                  |   231.6709 |   310.7328 |     **193.1359** | lower is better  |
+| WPD W1                   |    45.2713 |    85.6191 |      **14.7417** | lower is better  |
+| WPD bias abs             |    35.3439 |    78.7236 |       **4.7898** | lower is better  |
+| Gradient MAE             |     0.3491 |     0.3806 |       **0.3173** | lower is better  |
+| Gradient W1              |     0.2329 | **0.0564** |           0.1530 | lower is better  |
+| Gradient kurtosis abs Δ  |     3.7004 |     4.2010 |       **2.8428** | lower is better  |
+| PSD log-L2               |     0.8335 | **0.5139** |           0.8302 | lower is better  |
+| PSD slope abs Δ          | **0.9150** |     0.9482 |           1.1317 | lower is better  |
+| Exceedance abs Δ s>5     |     0.0042 |     0.0082 |       **0.0030** | lower is better  |
+| Exceedance abs Δ s>10    |     0.0066 |     0.0243 |       **0.0030** | lower is better  |
+| Exceedance abs Δ s>15    |     0.0062 |     0.0096 |       **0.0013** | lower is better  |
+| Exceedance abs Δ p90     |     0.0103 |     0.0123 |       **0.0018** | lower is better  |
+| Component-count curve L1 |   115.5278 |   124.6567 |      **88.8919** | lower is better  |
 
 Pairwise improvement counts relative to CNN:
 
-| Metric | TF C+E2-low-1344 improved / 168 | TF C+E2-low-1344 worsened / 168 |
-|---|---:|---:|
-| PSNRuv | 168 | 0 |
-| Speed MAE | 168 | 0 |
-| Speed RMSE | 168 | 0 |
-| WPD MAE | 168 | 0 |
-| WPD W1 | 165 | 3 |
-| WPD bias abs | 155 | 13 |
-| Gradient MAE | 168 | 0 |
-| Gradient W1 | 165 | 3 |
-| Gradient kurtosis abs Δ | 79 | 89 |
-| PSD log-L2 | 98 | 70 |
-| PSD slope abs Δ | 3 | 165 |
-| Exceedance abs Δ s>5 | 117 | 51 |
-| Exceedance abs Δ s>10 | 123 | 45 |
-| Exceedance abs Δ s>15 | 141 | 26 |
-| Exceedance abs Δ p90 | 160 | 8 |
-| Component-count curve L1 | 156 | 12 |
+| Metric                   | TF C+E2-low-1344 improved / 168 | TF C+E2-low-1344 worsened / 168 |
+| ------------------------ | ------------------------------: | ------------------------------: |
+| PSNRuv                   |                             168 |                               0 |
+| Speed MAE                |                             168 |                               0 |
+| Speed RMSE               |                             168 |                               0 |
+| WPD MAE                  |                             168 |                               0 |
+| WPD W1                   |                             165 |                               3 |
+| WPD bias abs             |                             155 |                              13 |
+| Gradient MAE             |                             168 |                               0 |
+| Gradient W1              |                             165 |                               3 |
+| Gradient kurtosis abs Δ  |                              79 |                              89 |
+| PSD log-L2               |                              98 |                              70 |
+| PSD slope abs Δ          |                               3 |                             165 |
+| Exceedance abs Δ s>5     |                             117 |                              51 |
+| Exceedance abs Δ s>10    |                             123 |                              45 |
+| Exceedance abs Δ s>15    |                             141 |                              26 |
+| Exceedance abs Δ p90     |                             160 |                               8 |
+| Component-count curve L1 |                             156 |                              12 |
 
 The main cheap-eval caveat is the same as for B+E2: PSD slope worsens relative to CNN, even though direct fidelity, scalar speed, WPD, gradient, exceedance, and component-count proxy metrics improve strongly.
 
@@ -551,21 +546,21 @@ The main cheap-eval caveat is the same as for B+E2: PSD slope worsens relative t
 
 The TTK topology pipeline completed cleanly for C+E2-low-1344: 336 VTI files, 336 PD files, and all merge-tree ports completed for both GT and SR fields. The final true topology result was:
 
-| Method | PD mean | MT mean | PD < CNN | MT < CNN | PD beats GAN | MT beats GAN | MT-GAN cases recovered | Winner distribution after candidate |
-|---|---:|---:|---:|---:|---:|---:|---:|---|
-| CNN baseline | 27.4063 | 5.8678 | -- | -- | -- | -- | -- | PD: CNN 2 / GAN 166; MT: CNN 148 / GAN 20 |
-| GAN baseline | 20.8641 | 8.3481 | 166/168 | 20/168 | -- | -- | -- | -- |
-| TF C+E2-low-1344 | 24.3389 | 5.7479 | 164/168 | 90/168 | 6/168 | 161/168 | 16/20 | PD: C+E2 4 / CNN 2 / GAN 162; MT: C+E2 87 / CNN 77 / GAN 4 |
+| Method           | PD mean | MT mean | PD < CNN | MT < CNN | PD beats GAN | MT beats GAN | MT-GAN cases recovered | Winner distribution after candidate                        |
+| ---------------- | ------: | ------: | -------: | -------: | -----------: | -----------: | ---------------------: | ---------------------------------------------------------- |
+| CNN baseline     | 27.4063 |  5.8678 |       -- |       -- |           -- |           -- |                     -- | PD: CNN 2 / GAN 166; MT: CNN 148 / GAN 20                  |
+| GAN baseline     | 20.8641 |  8.3481 |  166/168 |   20/168 |           -- |           -- |                     -- | --                                                         |
+| TF C+E2-low-1344 | 24.3389 |  5.7479 |  164/168 |   90/168 |        6/168 |      161/168 |                  16/20 | PD: C+E2 4 / CNN 2 / GAN 162; MT: C+E2 87 / CNN 77 / GAN 4 |
 
 ### Comparison: Candidate C vs B+E2 vs C+E2 at 1344
 
 The 1344 result directly tests whether adding Candidate C's `L_crit` back into the repaired E2 objective helps or hurts the clean B+E2 behavior.
 
-| Method | Objective summary | PD mean | MT mean | PD < CNN | MT < CNN | MT-GAN cases recovered | Readout |
-|---|---|---:|---:|---:|---:|---:|---|
-| C-1344 | B + `0.001 L_crit` | **22.8623** | 6.1236 | 168/168 | 49/168 | 9/20 | strongest PD at this scale |
-| B+E2-low-1344 | B + low-lambda TTK, no `L_crit` | 24.4965 | **5.6514** | 160/168 | 97/168 | **18/20** | strongest MT at this scale |
-| C+E2-low-1344 | B + `L_crit` + low-lambda TTK | 24.3389 | 5.7479 | 164/168 | 90/168 | 16/20 | slightly better PD than B+E2, weaker MT |
+| Method        | Objective summary               |     PD mean |    MT mean | PD < CNN | MT < CNN | MT-GAN cases recovered | Readout                                 |
+| ------------- | ------------------------------- | ----------: | ---------: | -------: | -------: | ---------------------: | --------------------------------------- |
+| C-1344        | B + `0.001 L_crit`              | **22.8623** |     6.1236 |  168/168 |   49/168 |                   9/20 | strongest PD at this scale              |
+| B+E2-low-1344 | B + low-lambda TTK, no `L_crit` |     24.4965 | **5.6514** |  160/168 |   97/168 |              **18/20** | strongest MT at this scale              |
+| C+E2-low-1344 | B + `L_crit` + low-lambda TTK   |     24.3389 |     5.7479 |  164/168 |   90/168 |                  16/20 | slightly better PD than B+E2, weaker MT |
 
 Interpretation so far:
 
@@ -580,8 +575,8 @@ At the time of this documentation update, C+E2-low-2688 had been scripted and va
 
 A placeholder comparison table is:
 
-| Method | PD mean | MT mean | PD < CNN | MT < CNN | MT-GAN cases recovered |
-|---|---:|---:|---:|---:|---:|
-| C-2688 | 22.4944 | 6.0803 | 168/168 | 52/168 | 10/20 |
-| B+E2-low-2688 | 23.9876 | 5.6774 | 166/168 | 90/168 | 18/20 |
-| C+E2-low-2688 | pending | pending | pending | pending | pending |
+| Method        | PD mean | MT mean | PD < CNN | MT < CNN | MT-GAN cases recovered |
+| ------------- | ------: | ------: | -------: | -------: | ---------------------: |
+| C-2688        | 22.4944 |  6.0803 |  168/168 |   52/168 |                  10/20 |
+| B+E2-low-2688 | 23.9876 |  5.6774 |  166/168 |   90/168 |                  18/20 |
+| C+E2-low-2688 | pending | pending |  pending |  pending |                pending |

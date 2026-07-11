@@ -4,13 +4,13 @@
 
 title: Arjun Dadhwal # the website title (if blank, full name will be used instead)
 first_name: Arjun
-middle_name: 
+middle_name:
 last_name: Dadhwal
-contact_note: 
+contact_note:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Website of Arjun Dadhwal. 
+  Website of Arjun Dadhwal.
 footer_text:
-keywords:  # add your own keywords or leave empty
+keywords: # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: favicon.ico # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
