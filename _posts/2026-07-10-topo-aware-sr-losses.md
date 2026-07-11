@@ -1,16 +1,14 @@
 ---
 layout: post
 title: Topology Aware (Merge Trees and Persistence Diagrams) losses for scalar field neural interpolation (Wind Field SR)
-date: 2025-07-10 14:24:00
-description: To be filled.
-tags: formatting charts
-categories: sample-posts
-chart:
-  plotly: true
+date: 2026-07-10 14:24:00
+description: Notes on topology-aware losses for wind-field super-resolution.
+tags: topology tda super-resolution machine-learning
+categories: research
 ---
 
 
-````markdown
+
 # Candidate Loss Summary
 
 ## Kissi et al. (2025) Approach (Topology-Aware Neural Interpolation)
